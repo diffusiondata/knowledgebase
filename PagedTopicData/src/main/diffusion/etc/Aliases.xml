@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<aliases>
+	<alias name="PagedRecordTopicDataExample">
+		<source>^/PagedRecordTopicDataExample/</source>
+        <destination>/home/dimeji/linux_workspace/CodeExamples/src/main/diffusion/html</destination>
+	</alias>
+</aliases>

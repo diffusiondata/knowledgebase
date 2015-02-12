@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <description>
+WHAT IS THIS?
+
+An illustrative Maven build file that uses the mvn-dar plugin to build this example project as a DAR that is suitable for deployment to a Diffusion server.
+
+run &quot;mvn clean install&quot; and find the resulting DAR file in the target directory.
+
+Currently depends on environment variable $DIFFUSION_HOME, amend to taste.</description>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>push-repository</id>
+			<url>http://download.pushtechnology.com/maven/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>PagedRecordTopicDataExample</groupId>
+	<artifactId>PagedRecordTopicDataExample</artifactId>
+	<version>1.0.0</version>
+	<packaging>dar</packaging>
+
+	<properties>
+        <!--  NB: Currently diffusion.jar is unavailable online, so this reference must be correct -->
+		<diffusion.install.dir>/home/dimeji/Development/Diffusion5.1.3_01</diffusion.install.dir>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.pushtechnology</groupId>
+			<artifactId>diffusion</artifactId>
+			<version>5.1.3</version>
+			<scope>system</scope>
+			<systemPath>${diffusion.install.dir}/lib/diffusion.jar</systemPath>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<!-- See http://www.pushtechnology.com/2013/08/13/mvndar-maven-plugin/
+				for an understanding of the mvn-dar Maven plugin. -->
+			<plugin>
+				<groupId>com.pushtechnology</groupId>
+				<artifactId>dar-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<minimumDiffusionVersion>5.0.0</minimumDiffusionVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+
+</project>
